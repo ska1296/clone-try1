@@ -17,4 +17,14 @@ public class ExampleConfiguration extends Configuration {
     public DataSourceFactory getDatabaseAppDataSourceFactory() {
         return database;
     }
+    
+    @JsonProperty
+	public String getTemplate() {
+		return "template";
+	}
+
+	@JsonProperty
+	public String getDefaultName() {
+		return "defaultName";
+	}
 }

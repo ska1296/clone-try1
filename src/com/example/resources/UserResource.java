@@ -13,57 +13,57 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.example.core.Person;
-import com.example.dao.PersonDAO;
+import com.example.core.Users;
+import com.example.dao.UserDAO;
 
 import io.dropwizard.hibernate.UnitOfWork;
 
-@Path("/person")
+@Path("/user")
 @Consumes({MediaType.APPLICATION_JSON})
 @Produces({MediaType.APPLICATION_JSON})
-public class PersonResource {
+public class UserResource {
 
-    PersonDAO personDAO;
+	UserDAO registerDAO;
 
-    public PersonResource(PersonDAO personDAO) {
-        this.personDAO = personDAO;
+    public UserResource(UserDAO personDAO) {
+        this.registerDAO = personDAO;
     }
     
     @GET
     @UnitOfWork
-    public List<Person> getAll(){
-        return personDAO.getAll();
+    public List<Users> getAll(){
+        return registerDAO.getAll();
     }
 
     @GET
     @Path("/{id}")
     @UnitOfWork
-    public Person get(@PathParam("id") Integer id){
-        return personDAO.findById(id);
+    public Users get(@PathParam("id") Integer id){
+        return registerDAO.findById(id);
     }
 
     @POST
     @UnitOfWork
-    public Person add(@Valid Person person) {
-        Person newPerson = personDAO.insert(person);
-        System.out.println(person.toString());
+    public Users add(@Valid Users user) {
+    	Users newPerson = registerDAO.insert(user);
+    	System.out.println(user.toString());
         return newPerson;
     }
 
     @PUT
     @Path("/{id}")
     @UnitOfWork
-    public Person update(@PathParam("id") Integer id, @Valid Person person) {
-        person = person.setId(id);
-        personDAO.update(person);
+    public Users update(@PathParam("id") Integer id, @Valid Users user) {
+        user = user.setId(id);
+        registerDAO.update(user);
 
-        return person;
+        return user;
     }
 
     @DELETE
     @Path("/{id}")
     @UnitOfWork
     public void delete(@PathParam("id") Integer id) {
-        personDAO.delete(personDAO.findById(id));
+        registerDAO.delete(registerDAO.findById(id));
     }
 }

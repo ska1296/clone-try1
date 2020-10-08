@@ -17,7 +17,7 @@ public class PersonDAO extends AbstractDAO<Person> {
     }
 
     public Person findById(int id) {
-        return (Person) currentSession().get(Person.class, id);
+        return currentSession().get(Person.class, id);
     }
 
     public void delete(Person person) {

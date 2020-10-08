@@ -1,8 +1,12 @@
 package com.example;
 
 import com.example.core.Person;
+import com.example.core.Users;
 import com.example.dao.PersonDAO;
+import com.example.dao.UserDAO;
+import com.example.helloworld.resources.HelloWorldResource;
 import com.example.resources.PersonResource;
+import com.example.resources.UserResource;
 
 import io.dropwizard.Application;
 import io.dropwizard.db.DataSourceFactory;
@@ -16,7 +20,7 @@ public class ExampleApplication extends Application<ExampleConfiguration> {
         new ExampleApplication().run(args);
     }
 
-    private final HibernateBundle<ExampleConfiguration> hibernate = new HibernateBundle<ExampleConfiguration>(Person.class) {
+    private final HibernateBundle<ExampleConfiguration> hibernate = new HibernateBundle<ExampleConfiguration>(Person.class, Users.class) {
         @Override
         public DataSourceFactory getDataSourceFactory(ExampleConfiguration configuration) {
             return configuration.getDatabaseAppDataSourceFactory();
@@ -32,16 +36,17 @@ public class ExampleApplication extends Application<ExampleConfiguration> {
     public void initialize(Bootstrap<ExampleConfiguration> bootstrap) {
         bootstrap.addBundle(hibernate);
     }
-
+    
     @Override
     public void run(ExampleConfiguration configuration, Environment environment) throws ClassNotFoundException {
 
-        /*final PersonDAO personDAO = new PersonDAO(hibernate.getSessionFactory());
-
-        final PersonResource personResource = new PersonResource(personDAO);
-
-        environment.jersey().register(personResource);*/
     	final PersonDAO dao = new PersonDAO(hibernate.getSessionFactory());
         environment.jersey().register(new PersonResource(dao));
+        
+        final HelloWorldResource resource = new HelloWorldResource(configuration.getTemplate(), configuration.getDefaultName());
+		environment.jersey().register(resource);
+		
+		final UserDAO user = new UserDAO(hibernate.getSessionFactory());
+        environment.jersey().register(new UserResource(user));
     }
 }
