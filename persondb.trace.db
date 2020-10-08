@@ -1,0 +1,9 @@
+2020-10-08 16:42:24 jdbc[10]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PERSON" not found; SQL statement:
+/* criteria query */ select this_.ID as id1_0_0_, this_.NAME as name2_0_0_ from PERSON this_ [42102-200]
+2020-10-08 16:42:57 jdbc[10]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PERSON" not found; SQL statement:
+/* criteria query */ select this_.ID as id1_0_0_, this_.NAME as name2_0_0_ from PERSON this_ [42102-200]
+2020-10-08 16:43:01 jdbc[10]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PERSON" not found; SQL statement:
+select person0_.ID as id1_0_0_, person0_.NAME as name2_0_0_ from PERSON person0_ where person0_.ID=? [42102-200]
