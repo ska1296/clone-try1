@@ -1,5 +1,9 @@
 package com.example.dao;
 
+import java.util.UUID;
+
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.SessionFactory;
 
 import com.example.core.Auth;
@@ -12,8 +16,9 @@ public class AuthDAO extends AbstractDAO<Auth> {
 		super(factory);
 	}
 
-	public String findByAuthToken(String authToken) {
-		return currentSession().get(Auth.class, authToken).getAuthToken();
+	public UUID findByAuthToken(String authToken) {
+		Auth x = currentSession().get(Auth.class, authToken);
+		return x == null ? null : x.getUuid();
 	}
 
 	public String deleteAuthToken(String authToken) {
