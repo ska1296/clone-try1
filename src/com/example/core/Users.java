@@ -1,48 +1,56 @@
 package com.example.core;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.io.Serializable;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name = "USERS")
-public class Users {
+public class Users implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name = "ID", nullable = false)
 	@NotNull
 	@JsonProperty
-	private Integer id;
+	@Column(name = "USERNAME", length = 255, nullable = false)
+	private String userName;
 
-	@Column(name = "NAME", length = 255, nullable = false)
-	@NotNull
-	@JsonProperty
-	private String name;
+	@Id
+	@GeneratedValue
+	@Column(name = "UUID", nullable = false)
+	private UUID uuid;
 
 	@Column(name = "PASSWORD", length = 255, nullable = false)
 	@NotNull
 	@JsonProperty
 	private String password;
 
-	public Integer getId() {
-		return id;
+	public UUID getUuid() {
+		return uuid;
 	}
 
-	public Users setId(Integer id) {
-		this.id = id;
-		return this;
+	public void setUuid(UUID uuid) {
+		this.uuid = uuid;
 	}
 
-	public String getName() {
-		return name;
+	public String getUserName() {
+		return userName;
 	}
 
-	public Users setName(String name) {
-		this.name = name;
+	public Users setUserName(String userName) {
+		this.userName = userName;
 		return this;
 	}
 
@@ -55,45 +63,8 @@ public class Users {
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((password == null) ? 0 : password.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Users other = (Users) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		return true;
-	}
-
-	@Override
 	public String toString() {
-		return "User {id=" + id + ", name=" + name + ", password=" + password + "}";
+		return "Users {uuid=" + uuid + ", userName=" + userName + ", password=" + password + "}";
 	}
-	
+
 }

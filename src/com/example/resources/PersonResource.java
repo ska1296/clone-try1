@@ -46,7 +46,6 @@ public class PersonResource {
     @UnitOfWork
     public Person add(@Valid Person person) {
         Person newPerson = personDAO.insert(person);
-        System.out.println(person.toString());
         return newPerson;
     }
 

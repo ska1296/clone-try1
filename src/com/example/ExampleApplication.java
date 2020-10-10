@@ -1,7 +1,9 @@
 package com.example;
 
+import com.example.core.Auth;
 import com.example.core.Person;
 import com.example.core.Users;
+import com.example.dao.AuthDAO;
 import com.example.dao.PersonDAO;
 import com.example.dao.UserDAO;
 import com.example.helloworld.resources.HelloWorldResource;
@@ -20,7 +22,7 @@ public class ExampleApplication extends Application<ExampleConfiguration> {
         new ExampleApplication().run(args);
     }
 
-    private final HibernateBundle<ExampleConfiguration> hibernate = new HibernateBundle<ExampleConfiguration>(Person.class, Users.class) {
+    private final HibernateBundle<ExampleConfiguration> hibernate = new HibernateBundle<ExampleConfiguration>(Person.class, Users.class, Auth.class) {
         @Override
         public DataSourceFactory getDataSourceFactory(ExampleConfiguration configuration) {
             return configuration.getDatabaseAppDataSourceFactory();
@@ -46,7 +48,8 @@ public class ExampleApplication extends Application<ExampleConfiguration> {
         final HelloWorldResource resource = new HelloWorldResource(configuration.getTemplate(), configuration.getDefaultName());
 		environment.jersey().register(resource);
 		
+		final AuthDAO auth = new AuthDAO(hibernate.getSessionFactory());
 		final UserDAO user = new UserDAO(hibernate.getSessionFactory());
-        environment.jersey().register(new UserResource(user));
+        environment.jersey().register(new UserResource(user, auth));
     }
 }
