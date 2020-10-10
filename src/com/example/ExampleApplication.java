@@ -2,12 +2,15 @@ package com.example;
 
 import com.example.core.Auth;
 import com.example.core.Person;
+import com.example.core.Post;
 import com.example.core.Users;
 import com.example.dao.AuthDAO;
 import com.example.dao.PersonDAO;
+import com.example.dao.PostDAO;
 import com.example.dao.UserDAO;
 import com.example.helloworld.resources.HelloWorldResource;
 import com.example.resources.PersonResource;
+import com.example.resources.PostResource;
 import com.example.resources.UserResource;
 
 import io.dropwizard.Application;
@@ -22,7 +25,8 @@ public class ExampleApplication extends Application<ExampleConfiguration> {
         new ExampleApplication().run(args);
     }
 
-    private final HibernateBundle<ExampleConfiguration> hibernate = new HibernateBundle<ExampleConfiguration>(Person.class, Users.class, Auth.class) {
+    private final HibernateBundle<ExampleConfiguration> hibernate = new HibernateBundle<ExampleConfiguration>(Person.class, Users.class, 
+    		Auth.class, Post.class) {
         @Override
         public DataSourceFactory getDataSourceFactory(ExampleConfiguration configuration) {
             return configuration.getDatabaseAppDataSourceFactory();
@@ -49,7 +53,9 @@ public class ExampleApplication extends Application<ExampleConfiguration> {
 		environment.jersey().register(resource);
 		
 		final AuthDAO auth = new AuthDAO(hibernate.getSessionFactory());
+		final PostDAO post = new PostDAO(hibernate.getSessionFactory());
 		final UserDAO user = new UserDAO(hibernate.getSessionFactory());
         environment.jersey().register(new UserResource(user, auth));
+        environment.jersey().register(new PostResource(post, auth));
     }
 }
