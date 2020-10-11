@@ -2,8 +2,6 @@ package com.example.dao;
 
 import java.util.UUID;
 
-import javax.validation.constraints.NotNull;
-
 import org.hibernate.SessionFactory;
 
 import com.example.core.Auth;
