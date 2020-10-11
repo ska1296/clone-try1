@@ -1,0 +1,981 @@
+{
+	"info": {
+		"_postman_id": "eba5102d-992e-414e-95b7-b02cef631d01",
+		"name": "twitterclone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "signup user1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "255:996af6ac4640815b4416be7ef73a551f:b36e286428fa3d20296ce5f020071e310a16bf541a241b820d728f706805772a2e165e842ea09783e5cf48ed2cd1a824f7c93dc9aeb711601fdc416e3c60c9b8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\": \"shubh\",\r\n    \"password\":\"password!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"signup"
+					]
+				},
+				"description": "sign up user 1"
+			},
+			"response": []
+		},
+		{
+			"name": "signup user2",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "255:996af6ac4640815b4416be7ef73a551f:b36e286428fa3d20296ce5f020071e310a16bf541a241b820d728f706805772a2e165e842ea09783e5cf48ed2cd1a824f7c93dc9aeb711601fdc416e3c60c9b8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\": \"ketan\",\r\n    \"password\":\"password@\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"signup"
+					]
+				},
+				"description": "sign up user 2"
+			},
+			"response": []
+		},
+		{
+			"name": "signup user3",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "255:996af6ac4640815b4416be7ef73a551f:b36e286428fa3d20296ce5f020071e310a16bf541a241b820d728f706805772a2e165e842ea09783e5cf48ed2cd1a824f7c93dc9aeb711601fdc416e3c60c9b8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\": \"agarwal\",\r\n    \"password\":\"password#\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"signup"
+					]
+				},
+				"description": "sign up user 3"
+			},
+			"response": []
+		},
+		{
+			"name": "invalid signin",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\": \"ska1296\",\r\n    \"password\":\"password$\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/signin/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"signin",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signin user1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\": \"shubh\",\r\n    \"password\":\"password!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/signin/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"signin",
+						"user"
+					]
+				},
+				"description": "signin user1"
+			},
+			"response": []
+		},
+		{
+			"name": "singin user2",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\": \"ketan\",\r\n    \"password\":\"password@\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/signin/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"signin",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "follow user2 from user1",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "255:62c423168bc47ea62cd41c3bdfc64bdd:ece4f1bd590665a490241688e82d1fbc3eb4f23ffd2bc3e7bad814ca715f316d51ae659ae0a27cfbfa96a36d7b97ffafeb02c1ea4598b83cae05932ebba6d501",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/user/follow/user?user=ketan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"follow",
+						"user"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "ketan"
+						}
+					]
+				},
+				"description": "the request needs:\r\n1. An auth token that is returned by signin. If lost, the token can be found by joining USERS table with the AUTH table by the UUID column\r\n2. A parameter of user=:username"
+			},
+			"response": []
+		},
+		{
+			"name": "follow user1 from user2",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "255:36014bd5203dbabef2c7a2c34a3cf765:cabbfbf0395c0001b9a78b1f051f003aed2a3f4bf76fadee7a18e72c5890040cb358423df4db43a4ceb8fd38b4096bf4c5e0158e58628d9affeb51950aac21fc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/user/follow/user?user=shubh",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"follow",
+						"user"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "shubh"
+						}
+					]
+				},
+				"description": "the request needs:\r\n1. An auth token that is returned by signin. If lost, the token can be found by joining USERS table with the AUTH table by the UUID column\r\n2. A parameter of user=:username"
+			},
+			"response": []
+		},
+		{
+			"name": "post3-user1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "255:62c423168bc47ea62cd41c3bdfc64bdd:ece4f1bd590665a490241688e82d1fbc3eb4f23ffd2bc3e7bad814ca715f316d51ae659ae0a27cfbfa96a36d7b97ffafeb02c1ea4598b83cae05932ebba6d501",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"postData\": \"this is 3rd post\",\r\n    \"createTime\":\"11-10-2020 00:09\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/post/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"post",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post2-user1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "255:62c423168bc47ea62cd41c3bdfc64bdd:ece4f1bd590665a490241688e82d1fbc3eb4f23ffd2bc3e7bad814ca715f316d51ae659ae0a27cfbfa96a36d7b97ffafeb02c1ea4598b83cae05932ebba6d501",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"postData\": \"this is 2rd post\",\r\n    \"createTime\":\"11-10-2020 00:09\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/post/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"post",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post1-user1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "255:62c423168bc47ea62cd41c3bdfc64bdd:ece4f1bd590665a490241688e82d1fbc3eb4f23ffd2bc3e7bad814ca715f316d51ae659ae0a27cfbfa96a36d7b97ffafeb02c1ea4598b83cae05932ebba6d501",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"postData\": \"this is 1st post\",\r\n    \"createTime\":\"11-10-2020 00:09\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/post/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"post",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post1-user2",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "255:36014bd5203dbabef2c7a2c34a3cf765:cabbfbf0395c0001b9a78b1f051f003aed2a3f4bf76fadee7a18e72c5890040cb358423df4db43a4ceb8fd38b4096bf4c5e0158e58628d9affeb51950aac21fc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"postData\": \"user2 this is 3rd post\",\r\n    \"createTime\":\"11-10-2020 00:09\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/post/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"post",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post2-user2",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"type": "text",
+						"value": "255:36014bd5203dbabef2c7a2c34a3cf765:cabbfbf0395c0001b9a78b1f051f003aed2a3f4bf76fadee7a18e72c5890040cb358423df4db43a4ceb8fd38b4096bf4c5e0158e58628d9affeb51950aac21fc"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"postData\": \"user2 this is 2nd post\",\r\n    \"createTime\":\"11-10-2020 00:09\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/post/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"post",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post3-user2",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"type": "text",
+						"value": "255:36014bd5203dbabef2c7a2c34a3cf765:cabbfbf0395c0001b9a78b1f051f003aed2a3f4bf76fadee7a18e72c5890040cb358423df4db43a4ceb8fd38b4096bf4c5e0158e58628d9affeb51950aac21fc"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"postData\": \"user2 this is 1st post\",\r\n    \"createTime\":\"11-10-2020 00:09\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/post/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"post",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find invalid user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "255:f09324b91824e07eb1cad03a9f87f3b6:6c3a22658fbc48e285dda1c100e75ad1d60554b928caaf7e0a61a70226886392c795fdcad1e6770f2dedefe9a31f836f646f854f304235d7bc0413e4eed14d79",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"postData\": \"this is another post\",\r\n    \"createTime\":\"11-10-2020 00:09\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/find?user=ska1296",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"find"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "ska1296"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find user1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"type": "text",
+						"value": "255:f09324b91824e07eb1cad03a9f87f3b6:6c3a22658fbc48e285dda1c100e75ad1d60554b928caaf7e0a61a70226886392c795fdcad1e6770f2dedefe9a31f836f646f854f304235d7bc0413e4eed14d79"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"postData\": \"this is another post\",\r\n    \"createTime\":\"11-10-2020 00:09\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/find?user=shubh",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"find"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "shubh"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "like user1-post1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "255:36014bd5203dbabef2c7a2c34a3cf765:cabbfbf0395c0001b9a78b1f051f003aed2a3f4bf76fadee7a18e72c5890040cb358423df4db43a4ceb8fd38b4096bf4c5e0158e58628d9affeb51950aac21fc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"postData\": \"this is 1st post\",\r\n    \"user\":\"794dc6d8-eb2a-4b58-a8ec-0728a1d440e2\",\r\n    \"createTime\": \"11-10-2020 00:09\",\r\n    \"postId\":\"acb15cc4-8588-465d-8fd5-373f42b110cb\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/post/like/current",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"post",
+						"like",
+						"current"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signin user3",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\": \"agarwal\",\r\n    \"password\":\"password#\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/signin/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"signin",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user3-post1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"type": "text",
+						"value": "255:96b0749819a2b55340eec03192b759e8:b963cde9c7a36340a5ed942bc17f186fcda7afcb83bbdb6724eff9fe66c4b769a958bc576672943804b7f9dbae7339e7fd8e4bf8d49adf17211ae60a9b125006"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"postData\": \"user3 this is 1st post\",\r\n    \"createTime\":\"11-10-2020 00:09\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/post/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"post",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "like user3-post1 from user1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "255:62c423168bc47ea62cd41c3bdfc64bdd:ece4f1bd590665a490241688e82d1fbc3eb4f23ffd2bc3e7bad814ca715f316d51ae659ae0a27cfbfa96a36d7b97ffafeb02c1ea4598b83cae05932ebba6d501",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"postData\":\"user3 this is 1st post\",\r\n    \"user\":\"69086552-2dac-45da-905d-2661954c6b73\",\r\n    \"createTime\": \"11-10-2020 00:09\",\r\n    \"postId\":\"2545c0e0-56d5-4200-8334-b1c7831ede57\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/post/like/current",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"post",
+						"like",
+						"current"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch posts for user1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "255:62c423168bc47ea62cd41c3bdfc64bdd:ece4f1bd590665a490241688e82d1fbc3eb4f23ffd2bc3e7bad814ca715f316d51ae659ae0a27cfbfa96a36d7b97ffafeb02c1ea4598b83cae05932ebba6d501",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/post/view/user/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"post",
+						"view",
+						"user",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch posts for user2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "255:36014bd5203dbabef2c7a2c34a3cf765:cabbfbf0395c0001b9a78b1f051f003aed2a3f4bf76fadee7a18e72c5890040cb358423df4db43a4ceb8fd38b4096bf4c5e0158e58628d9affeb51950aac21fc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/post/view/user/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"post",
+						"view",
+						"user",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "fetch posts for user3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"type": "text",
+						"value": "255:96b0749819a2b55340eec03192b759e8:b963cde9c7a36340a5ed942bc17f186fcda7afcb83bbdb6724eff9fe66c4b769a958bc576672943804b7f9dbae7339e7fd8e4bf8d49adf17211ae60a9b125006"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/post/view/user/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"post",
+						"view",
+						"user",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signout user1",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"type": "text",
+						"value": "255:62c423168bc47ea62cd41c3bdfc64bdd:ece4f1bd590665a490241688e82d1fbc3eb4f23ffd2bc3e7bad814ca715f316d51ae659ae0a27cfbfa96a36d7b97ffafeb02c1ea4598b83cae05932ebba6d501"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/user/signout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"signout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "like all posts for user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "255:36014bd5203dbabef2c7a2c34a3cf765:cabbfbf0395c0001b9a78b1f051f003aed2a3f4bf76fadee7a18e72c5890040cb358423df4db43a4ceb8fd38b4096bf4c5e0158e58628d9affeb51950aac21fc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"postData\":\"user3 this is 1st post\",\r\n    \"user\":\"69086552-2dac-45da-905d-2661954c6b73\",\r\n    \"createTime\": \"11-10-2020 00:09\",\r\n    \"postId\":\"2545c0e0-56d5-4200-8334-b1c7831ede57\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/post/like/all?user=ketan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"post",
+						"like",
+						"all"
+					],
+					"query": [
+						{
+							"key": "user",
+							"value": "ketan"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
