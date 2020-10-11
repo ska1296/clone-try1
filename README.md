@@ -19,7 +19,7 @@ The project was built and run in Windows environment in eclipse and Windows Comm
 - PostgreSQL 4.26
 
 ## Setup
-- clone the poject
+- clone the project
 - create a database called 'clone' using the "CREATE DATABASE" commands in the file setup\createTables.txt. The expected port, username, database name and password are available in the yaml file.
 - navigate to clone-try1.yaml under the project and update the fields (if needed):
   - user
