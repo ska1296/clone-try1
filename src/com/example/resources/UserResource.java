@@ -2,7 +2,7 @@ package com.example.resources;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-import java.util.List;
+import java.util.UUID;
 
 import javax.validation.Valid;
 import javax.ws.rs.Consumes;
@@ -19,9 +19,11 @@ import javax.ws.rs.core.Response;
 
 import com.example.auth.Hash;
 import com.example.core.Auth;
+import com.example.core.Follows;
 import com.example.core.SignIn;
 import com.example.core.Users;
 import com.example.dao.AuthDAO;
+import com.example.dao.FollowDAO;
 import com.example.dao.UserDAO;
 
 import io.dropwizard.hibernate.UnitOfWork;
@@ -33,36 +35,22 @@ public class UserResource {
 
 	UserDAO userDao;
 	AuthDAO authDao;
+	FollowDAO followsDao;
 
-	public UserResource(UserDAO userDao, AuthDAO authDao) {
+	public UserResource(UserDAO userDao, AuthDAO authDao, FollowDAO followsDao) {
 		this.userDao = userDao;
 		this.authDao = authDao;
-	}
-
-	@GET
-	@UnitOfWork
-	public List<Users> getAll() {
-		return userDao.getAll();
-	}
-
-	@GET
-	@Path("/{find}")
-	@UnitOfWork
-	public String get(@QueryParam("user") String userName) {
-		Users user = userDao.findByUserName(userName);
-		if (user == null)
-			return "No user found";
-		return user.getUserName();
+		this.followsDao = followsDao;
 	}
 
 	@POST
 	@Path("/{signup}")
 	@UnitOfWork
-	public String add(@Valid Users user) throws NoSuchAlgorithmException, InvalidKeySpecException {
-		user.setPassword(Hash.generateStorngPasswordHash(user.getPassword()));
+	public String signup(@Valid Users user) throws NoSuchAlgorithmException, InvalidKeySpecException {
+		user.setPassword(Hash.generateStrongPasswordHash(user.getPassword()));
 		if (userDao.findByUserName(user.getUserName()) == null) {
 			userDao.insert(user);
-			return "Created! " + user.toString();
+			return "User added!";
 		}
 		return "User is there.";
 	}
@@ -70,14 +58,15 @@ public class UserResource {
 	@POST
 	@Path("/{signin}/{userName}")
 	@UnitOfWork
-	public String singin(@PathParam("userName") String userName, @Valid SignIn user) throws NoSuchAlgorithmException, InvalidKeySpecException {
+	public String singin(@PathParam("userName") String userName, @Valid SignIn signInuser)
+			throws NoSuchAlgorithmException, InvalidKeySpecException {
 		String authToken = "";
-		Users x = userDao.findByUserName(user.getUserName());
-		if (Hash.validatePassword(user.getPassword(), x.getPassword())) {
-			authToken = Hash.generateStorngPasswordHash(x.getPassword());
+		Users matchedUser = userDao.findByUserName(signInuser.getUserName());
+		if (matchedUser != null && Hash.validatePassword(signInuser.getPassword(), matchedUser.getPassword())) {
+			authToken = Hash.generateStrongPasswordHash(matchedUser.getPassword()).replaceAll("\\s+", "");
 			Auth authDetail = new Auth();
 			authDetail.setAuthToken(authToken);
-			authDetail.setUuid(x.getUuid());
+			authDetail.setUuid(matchedUser.getUuid());
 			authDao.insert(authDetail);
 			return authToken;
 		}
@@ -86,10 +75,48 @@ public class UserResource {
 
 	}
 
-	@DELETE
-	@Path("/{singout}")
+	@GET
+	@Path("/{follow}/{user}")
 	@UnitOfWork
-	public Response delete(@HeaderParam("token") String authString) {
+	public String followUser(@HeaderParam("token") String authString, @QueryParam("user") String userName) {
+
+		UUID followerUuid = authDao.findUserByAuthToken(authString);
+		if (followerUuid == null)
+			return "Sign in!";
+
+		if (userName == null || userName.isEmpty())
+			return "No user mentioned!";
+
+		Users followsUser = userDao.findByUserName(userName);
+		if (followsUser == null)
+			return "No such user exists!";
+
+		if (followerUuid.equals(followsUser.getUuid()))
+			return "Cannot follow self!";
+
+		UUID followsUuid = followsUser.getUuid();
+		Follows newFollow = new Follows();
+		newFollow.setFollowerId(followerUuid);
+		newFollow.setFollowsUuid(followsUuid);
+		followsDao.insert(newFollow);
+
+		return "Followed";
+	}
+
+	@GET
+	@Path("/{find}")
+	@UnitOfWork
+	public String findUser(@QueryParam("user") String userName) {
+		Users user = userDao.findByUserName(userName);
+		if (user == null)
+			return "No user found";
+		return user.getUserName();
+	}
+
+	@DELETE
+	@Path("/{signout}")
+	@UnitOfWork
+	public Response signout(@HeaderParam("token") String authString) {
 		return Response.status(200).entity(authDao.deleteAuthToken(authString)).build();
 	}
 

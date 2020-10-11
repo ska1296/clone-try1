@@ -28,7 +28,7 @@
               <transformers>
                 <transformer />
                 <transformer>
-                  <mainClass>com.example.ExampleApplication</mainClass>
+                  <mainClass>com.example.TwitterCloneApplication</mainClass>
                 </transformer>
               </transformers>
             </configuration>

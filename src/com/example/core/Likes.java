@@ -1,78 +1,54 @@
 package com.example.core;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.io.Serializable;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
-@Table(name = "LIKES")
-public class Likes {
+@Table(name = "LIKES", uniqueConstraints=@UniqueConstraint(columnNames= {"USER_UUID","POST_UUID"}))
+public class Likes implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	@Id
+    @Column(name = "USER_UUID", nullable = false)
+    @NotNull
+    @JsonProperty
+    private UUID user;
 
     @Id
-    @Column(name = "UUID_USER", nullable = false)
+    @Column(name = "POST_UUID", nullable = false)
     @NotNull
     @JsonProperty
-    private Integer id;
+    private UUID post;
 
-    @Column(name = "UUID_POST", length = 100, nullable = false)
-    @NotNull
-    @JsonProperty
-    private String followsUuid;
-
-	public Integer getId() {
-		return id;
+	public UUID getUser() {
+		return user;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setUser(UUID user) {
+		this.user = user;
 	}
 
-	public String getFollowsUuid() {
-		return followsUuid;
+	public UUID getPost() {
+		return post;
 	}
 
-	public void setFollowsUuid(String followsUuid) {
-		this.followsUuid = followsUuid;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((followsUuid == null) ? 0 : followsUuid.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Likes other = (Likes) obj;
-		if (followsUuid == null) {
-			if (other.followsUuid != null)
-				return false;
-		} else if (!followsUuid.equals(other.followsUuid))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
+	public void setPost(UUID post) {
+		this.post = post;
 	}
 
 	@Override
 	public String toString() {
-		return "Likes {id=" + id + ", followsUuid=" + followsUuid + "}";
+		return "Likes {user=" + user + ", post=" + post + "}";
 	}
-    
+
 }

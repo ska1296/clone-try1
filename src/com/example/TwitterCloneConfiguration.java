@@ -7,7 +7,7 @@ import io.dropwizard.db.DataSourceFactory;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-public class ExampleConfiguration extends Configuration {
+public class TwitterCloneConfiguration extends Configuration {
 
     @Valid
     @NotNull

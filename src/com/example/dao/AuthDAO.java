@@ -14,7 +14,7 @@ public class AuthDAO extends AbstractDAO<Auth> {
 		super(factory);
 	}
 
-	public UUID findByAuthToken(String authToken) {
+	public UUID findUserByAuthToken(String authToken) {
 		Auth x = currentSession().get(Auth.class, authToken);
 		return x == null ? null : x.getUuid();
 	}

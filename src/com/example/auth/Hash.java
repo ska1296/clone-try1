@@ -14,7 +14,7 @@ public class Hash {
 	public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeySpecException {
 
 		String originalPassword = "password";
-		String generatedSecuredPasswordHash = generateStorngPasswordHash(originalPassword);
+		String generatedSecuredPasswordHash = generateStrongPasswordHash(originalPassword);
 		System.out.println(generatedSecuredPasswordHash);
 
 		boolean matched = validatePassword("password", generatedSecuredPasswordHash);
@@ -25,7 +25,7 @@ public class Hash {
 
 	}
 
-	public static String generateStorngPasswordHash(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
+	public static String generateStrongPasswordHash(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
 		int iterations = 255;
 		char[] chars = password.toCharArray();
 		byte[] salt = getSalt();

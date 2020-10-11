@@ -1,6 +1,6 @@
 package com.example.core;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,66 +13,33 @@ import javax.validation.constraints.NotNull;
 public class Follows {
 
     @Id
-    @Column(name = "UUID", nullable = false)
+    @Column(name = "FOLLOWER_UUID", nullable = false)
     @NotNull
-    @JsonProperty
-    private Integer id;
+    private UUID followerUuid;
 
     @Column(name = "FOLLOWS_UUID", length = 100, nullable = false)
     @NotNull
-    @JsonProperty
-    private String followsUuid;
+    private UUID followsUuid;
 
-	public Integer getId() {
-		return id;
+	public UUID getFollowerId() {
+		return followerUuid;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setFollowerId(UUID followerUuid) {
+		this.followerUuid = followerUuid;
 	}
 
-	public String getFollowsUuid() {
+	public UUID getFollowsUuid() {
 		return followsUuid;
 	}
 
-	public void setFollowsUuid(String followsUuid) {
+	public void setFollowsUuid(UUID followsUuid) {
 		this.followsUuid = followsUuid;
 	}
 
 	@Override
 	public String toString() {
-		return "Follows {id=" + id + ", followsUuid=" + followsUuid + "}";
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((followsUuid == null) ? 0 : followsUuid.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Follows other = (Follows) obj;
-		if (followsUuid == null) {
-			if (other.followsUuid != null)
-				return false;
-		} else if (!followsUuid.equals(other.followsUuid))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
+		return "Follows {followerUuid=" + followerUuid + ", followsUuid=" + followsUuid + "}";
 	}
 
 }
