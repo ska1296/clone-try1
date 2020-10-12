@@ -116,3 +116,49 @@ Use the file setup\twitterclone.postman_collection. Import the file in Postman.
 - Logout
   - DELETE. URL: http://localhost:8080/user/signout
   - No data is passed to the request except the auth token.
+
+
+## SCHEMA
+- Users table:
+```
+| Column Name |       Data Type        |             Description             |
+|-------------|------------------------|-------------------------------------|
+| uuid        | uuid                   | unique identifier for users         |
+| username    | character varying(255) | username chosen by the user         |
+| password    | character varying(255) | hash of password chosen by the user |
+````
+
+- Post table:
+```
+
+| Column Name |       Data Type        |           Description           |
+|-------------|------------------------|---------------------------------|
+| uuid        | uuid                   | unique identifier for users     |
+| post_data   | character varying(140) | post created by the user        |
+| createtime  | character varying(255) | time the post was created at.   |
+| post_uuid   | uuid                   | unique identifier for each post 
+```
+
+- Likes table:
+```
+| Column Name | Data Type |           Description           |
+|-------------|-----------|---------------------------------|
+| user_uuid   | uuid      | unique identifier of users     |
+| post_uuid   | uuid      | unique identifier of post |
+```
+
+- Follows table:
+```
+|  Column Name  | Data Type |             Description             |
+|---------------|-----------|-------------------------------------|
+| follower_uuid | uuid      | unique identifier of follower users |
+| follows_uuid  | uuid      | unique identifier of followed user  |
+```
+
+- Auth session table:
+```
+| Column Name |       Data Type        |           Description           |
+|-------------|------------------------|---------------------------------|
+| uuid        | uuid                   | unique identifier of user       |
+| auth_token  | character varying(255) | a generated authentication hash for session |
+```
