@@ -1,4 +1,4 @@
-# clone-try1
+# Simplified twitter clone
 The project implements simplified twitter clone for:
 - User registration
 - Log in/Log out
